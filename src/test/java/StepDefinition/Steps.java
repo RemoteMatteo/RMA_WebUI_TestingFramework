@@ -1,7 +1,7 @@
 package StepDefinition;
 
-import PageObjects.BrowserActions;
-import PageObjects.HomePagePO;
+import Tools.BrowserActions;
+import PageObjects.MagentaHomepagePO;
 import io.cucumber.java.en.And;
 import junit.framework.Assert;
 import org.openqa.selenium.WebDriver;
@@ -10,13 +10,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Steps extends BrowserActions{
+public class Steps extends BrowserActions {
 
     WebDriver driver = returnDriver();
 
     @Given("Open Magenta Homepage")
     public void openMagentaHomepage() {
-        driver.get(HomePagePO.magentaHomepage);
+        driver.get(MagentaHomepagePO.magentaHomepage);
     }
 
     @And("Maximize browser window")
@@ -26,21 +26,21 @@ public class Steps extends BrowserActions{
 
     @When("Accept pop-up informing about cookies")
     public void acceptPopUpInformingAboutCookies() {
-        HomePagePO.cookieAcceptanceButton(driver).click();
+        MagentaHomepagePO.cookieAcceptanceButton(driver).click();
     }
 
     @When("Reject pop-up informing about cookies")
     public void rejectPopUpInformingAboutCookies() {
-        HomePagePO.cookieRejectionButton(driver).click();
+        MagentaHomepagePO.cookieRejectionButton(driver).click();
     }
 
     @Then("Magenta Homepage is opened")
     public void magentaHomepageIsOpened() {
-        Assert.assertEquals("MAGENTA GAMING", HomePagePO.navBarTitle(driver).getAttribute("textContent"));
+        Assert.assertEquals("MAGENTA GAMING", MagentaHomepagePO.navBarTitle(driver).getAttribute("textContent"));
     }
 
     @Then("Magenta Homepage is not opened")
     public void magentaHomepageIsNotOpened() {
-        Assert.assertEquals(" Verwalte deine Cookie-Einstellungen ", HomePagePO.cookiesDeniedInfo(driver).getAttribute("textContent"));
+        Assert.assertEquals(" Verwalte deine Cookie-Einstellungen ", MagentaHomepagePO.cookiesDeniedInfo(driver).getAttribute("textContent"));
     }
 }
