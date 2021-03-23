@@ -10,7 +10,7 @@ public class BrowserActions {
     static WebDriver driver;
 
     public static WebDriver returnDriver() {
-        System.setProperty("webdriver.chrome.driver","src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver");
         return Objects.requireNonNullElseGet(driver, ChromeDriver::new);
     }
 
